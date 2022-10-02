@@ -1,0 +1,83 @@
+[
+  {
+    "choices": ["Sheep", "Goat", "Horse", "Donkey"],
+    "tags": ["general knowledge"],
+    "createdAt": "2022-09-22T22:12:26.917Z",
+    "category": "general_knowledge",
+    "question": "Of What Is A Jenny The Female?",
+    "correctAnswer": "Donkey",
+    "difficulty": "medium",
+    "author": "Martin Thuo",
+    "__v": 0
+  },
+  {
+    "choices": [
+      "Thomas Edison",
+      "Michael Faraday",
+      "Nikola Tesla",
+      "Edith Clarke"
+    ],
+    "tags": ["science"],
+    "createdAt": "2022-09-22T22:12:26.917Z",
+    "category": "science",
+    "question": "Who is regarded as the father of electricity?",
+    "correctAnswer": "Michael Faraday",
+    "difficulty": "medium",
+    "author": "Martin Thuo",
+    "__v": 0
+  },
+  {
+    "choices": ["Bill Gates", "Elon Musk", "Mark Zucherburg", "Jeff Bezos"],
+    "tags": ["science"],
+    "createdAt": "2022-09-22T22:12:26.917Z",
+    "category": "general_knowledge",
+    "question": "Who is the richest man on earth?",
+    "correctAnswer": "Elon Musk",
+    "difficulty": "easy",
+    "author": "Martin Thuo",
+    "__v": 0
+  },
+  {
+    "choices": ["River Niger", "River Nile", "River Congo", "River Zambezi"],
+    "tags": ["science"],
+    "createdAt": "2022-09-22T22:12:26.917Z",
+    "category": "geography",
+    "question": "Which is the longest river in Africa?",
+    "correctAnswer": "River Nile",
+    "difficulty": "easy",
+    "author": "Martin Thuo",
+    "__v": 0
+  },
+  {
+    "choices": [
+      "Rift Valley",
+      "Grand Canyon",
+      "Colcoa Canyon",
+      "Cotahuasi Canyon"
+    ],
+    "tags": ["science"],
+    "createdAt": "2022-09-22T22:12:26.917Z",
+    "category": "geography",
+    "question": "Which is the largest valley on earth?",
+    "correctAnswer": "Rift Valley",
+    "difficulty": "easy",
+    "author": "Martin Thuo",
+    "__v": 0
+  },
+  {
+    "choices": [
+      "Stranger Things",
+      "Game of Thrones",
+      "Money Heist",
+      "Squid Game"
+    ],
+    "tags": ["science"],
+    "createdAt": "2022-09-22T22:12:26.917Z",
+    "category": "film",
+    "question": "What is the most viewed Netflix series of all time?",
+    "correctAnswer": "Squid Game",
+    "difficulty": "medium",
+    "author": "Martin Thuo",
+    "__v": 0
+  }
+]
