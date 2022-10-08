@@ -25,4 +25,14 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/v1/questions', questionRouter);
 
+// Handle all unimplemented routes
+app.all('*', (req, res, next) => {
+  res.status(404).json({
+    status: 'fail',
+    message: `${req.originalUrl} not found on this server.`,
+  });
+
+  next();
+});
+
 module.exports = app;
