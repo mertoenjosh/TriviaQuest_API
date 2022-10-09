@@ -25,7 +25,9 @@ router.route('/api-stats').get(questionController.getQuestionStats);
 router
   .route('/')
   .get(questionController.getAllQuestions)
-  .post(questionController.createQuestion);
+  .post(questionController.createQuestion)
+  .delete(questionController.deleteAllQuestions); // TODO: remove this route after development
+
 router
   .route('/:id')
   .get(questionController.getQuestion)

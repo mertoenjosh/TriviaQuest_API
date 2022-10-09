@@ -1,6 +1,6 @@
 [
   {
-    "choices": ["Sheep", "Goat", "Horse", "Donkey"],
+    "choices": ["Sheep", "Goat", "Horse"],
     "tags": ["general knowledge"],
     "createdAt": "2022-09-22T22:12:26.917Z",
     "category": "general_knowledge",
@@ -11,12 +11,7 @@
     "__v": 0
   },
   {
-    "choices": [
-      "Thomas Edison",
-      "Michael Faraday",
-      "Nikola Tesla",
-      "Edith Clarke"
-    ],
+    "choices": ["Thomas Edison", "Nikola Tesla", "Edith Clarke"],
     "tags": ["science"],
     "createdAt": "2022-09-22T22:12:26.917Z",
     "category": "science",
@@ -27,7 +22,7 @@
     "__v": 0
   },
   {
-    "choices": ["Bill Gates", "Elon Musk", "Mark Zucherburg", "Jeff Bezos"],
+    "choices": ["Bill Gates", "Mark Zucherburg", "Jeff Bezos"],
     "tags": ["science"],
     "createdAt": "2022-09-22T22:12:26.917Z",
     "category": "general_knowledge",
@@ -38,7 +33,7 @@
     "__v": 0
   },
   {
-    "choices": ["River Niger", "River Nile", "River Congo", "River Zambezi"],
+    "choices": ["River Niger", "River Congo", "River Zambezi"],
     "tags": ["science"],
     "createdAt": "2022-09-22T22:12:26.917Z",
     "category": "geography",
@@ -49,12 +44,7 @@
     "__v": 0
   },
   {
-    "choices": [
-      "Rift Valley",
-      "Grand Canyon",
-      "Colcoa Canyon",
-      "Cotahuasi Canyon"
-    ],
+    "choices": ["Grand Canyon", "Colcoa Canyon", "Cotahuasi Canyon"],
     "tags": ["science"],
     "createdAt": "2022-09-22T22:12:26.917Z",
     "category": "geography",
@@ -65,12 +55,7 @@
     "__v": 0
   },
   {
-    "choices": [
-      "Stranger Things",
-      "Game of Thrones",
-      "Money Heist",
-      "Squid Game"
-    ],
+    "choices": ["Stranger Things", "Game of Thrones", "Money Heist"],
     "tags": ["science"],
     "createdAt": "2022-09-22T22:12:26.917Z",
     "category": "film",
