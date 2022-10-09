@@ -99,15 +99,6 @@ exports.deleteQuestion = catchErrorsAsync(async (req, res, next) => {
   });
 });
 
-//TODO: Remove this handle
-exports.deleteAllQuestions = catchErrorsAsync(async (req, res, next) => {
-  await Question.deleteMany();
-  res.status(204).json({
-    status: 'success',
-    data: null,
-  });
-});
-
 exports.getQuestionStats = catchErrorsAsync(async (req, res, next) => {
   const stats = await Question.aggregate([
     {
