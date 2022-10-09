@@ -11,6 +11,7 @@ const app = express();
 // MODDLEWARES
 // Implement CORS
 app.use(cors());
+app.options('*', cors());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
