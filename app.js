@@ -29,7 +29,10 @@ app.use('/api/v1/questions', questionRouter);
 
 // Handle all unimplemented routes
 app.all('*', (req, res, next) => {
-  const err = new AppError(`${req.originalUrl} not found on this server.`, 404);
+  const err = new AppError(
+    `${req.originalUrl} not found on this server for that request.`,
+    404
+  );
 
   next(err);
 });

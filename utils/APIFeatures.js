@@ -50,7 +50,8 @@ class APIFeatures {
   }
 
   paginate() {
-    const limit = this.queryObject.limit * 1 || 6;
+    // TODO 'limit': Ensure never returns less results than requested
+    const limit = this.queryObject.limit * 1 || 3;
     const random = Math.floor(Math.random() * (this.itemsCount / limit)) + 1;
     const page = this.queryObject.page * 1 || random;
     const skip = (page - 1) * limit; // e.g page 3 with 10 results each page == skip 20 -> page - 1 * limit

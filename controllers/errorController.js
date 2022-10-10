@@ -55,10 +55,20 @@ module.exports = (err, req, res, next) => {
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === 'production') {
     let error = { ...err };
+    error.message = err.message;
 
-    if (err.name === 'CastError') error = handleCastErrorDB(err);
-    if (err.code === 11000) error = handleDuplicateQuestion(err);
-    if (err.name === 'ValidationError') error = handleValidationError(err);
+    if (err.name === 'CastError') {
+      error = handleCastErrorDB(err);
+    }
+
+    if (err.code === 11000) {
+      error = handleDuplicateQuestion(err);
+    }
+
+    if (err.name === 'ValidationError') {
+      error = handleValidationError(err);
+    }
+
     // TODO: Add more uncaught operational errors
 
     sendErrorProd(error, res);
