@@ -52,6 +52,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+// Hash your password
 userSchema.pre('save', async function (next) {
   // Guard clouse: Don't run when password isn't modified
   if (!this.isModified('password')) return next();
@@ -65,6 +66,17 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
+// Remove unwanted fields from response
+userSchema.methods.toJSON = function () {
+  const user = this;
+  const userObj = user.toObject();
+
+  delete userObj.password;
+
+  return userObj;
+};
+
+// set passwordUpdatedAt when password is updated.
 userSchema.pre('save', function (next) {
   if (!this.isModified('password') || this.isNew) return next();
 
@@ -89,6 +101,7 @@ userSchema.methods.correctPassword = async function (
   return await bcrypt.compare(passwordFromReq, passwordFromDB);
 };
 
+// Check if password has changed since token creation
 userSchema.methods.changedPasswordAfter = async function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedAtTimeStamp = parseInt(
