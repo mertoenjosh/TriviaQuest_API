@@ -10,7 +10,7 @@ process.on('uncaughtException', err => {
 dotenv.config({ path: './config.env' });
 const app = require('./app');
 
-const DB = process.env.DATABASE.replace(
+const DB = process.env.DATABASE_TEST.replace(
   '<PASSWORD>',
   process.env.DATABASE_PASSWORD
 );
@@ -32,7 +32,7 @@ const server = app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
 });
 
-// Hanlde all unhandled rejections
+// Handle all unhandled rejections
 process.on('unhandledRejection', err => {
   console.log(`UNHANDLED REJECTION 💥. Shuting down...`);
   console.log(err);
