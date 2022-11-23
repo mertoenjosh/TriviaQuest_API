@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "NODE_ENV=development nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js",
     "debug": "ndb server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js"
+    "test": "jest"
   },
   "author": "Martin Thuo",
   "license": "ISC",
@@ -36,6 +37,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
+    "jest": "^29.3.1",
     "prettier": "^2.7.1"
   },
   "engines": {
