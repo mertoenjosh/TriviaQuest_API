@@ -54,7 +54,8 @@ EMAIL_PASSWORD=
 EMAIL_PORT=25
 ```
 
-> NB: Modify your DB connection string and replace the password with `<PASSWORD>` and save the password in the separate `DATABASE_PASSWORD` variable if you are using a remote database.
-> eg DATABASE=mongodb+srv://username:<PASSWORD>@mongo_cluster/database_name?retryWrites=true&w=majority
-
-- The code is using mailtrap for email sending simulation, create a mailbox and add the required configurations in the file.
+## NOTE
+- Modify your DB connection string and replace the password with `<PASSWORD>` and save the password in the separate `DATABASE_PASSWORD` variable if you are using a remote database.
+e.g. 
+> DATABASE=mongodb+srv://username:<PASSWORD>@mongo_cluster/database_name?retryWrites=true&w=majority
+- I am using mailtrap for email sending simulation, create a mailbox and add the required configurations in the file.
