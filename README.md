@@ -22,10 +22,10 @@
 ## API Security Features
 
 - Added aditional security headers with [_helmet_](https://helmetjs.github.io/).
-- Limited number of requests per hour with [_express-rate-limit_](https://www.npmjs.com/package/express-rate-limit) to prevent ddos.
+- Implemented rate limit with [_express-rate-limit_](https://www.npmjs.com/package/express-rate-limit) to prevent ddos.
 - Sanitized input with [_express-mongo-sanitize_](https://www.npmjs.com/package/express-mongo-sanitize) to avoid NoSQL injections.
 - Added [_xss-clean_](https://www.npmjs.com/package/xss-clean) to prevent from Cross-Site Scripting.
-- Implemented [_hpp_](https://www.npmjs.com/package/hpp) to prevent parameter polution.
+- Added [_hpp_](https://www.npmjs.com/package/hpp) to prevent parameter polution.
 
 ## Testing The API
 
