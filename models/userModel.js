@@ -46,7 +46,7 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
   active: {
-    type: String,
+    type: Boolean,
     default: true,
     select: false,
   },
