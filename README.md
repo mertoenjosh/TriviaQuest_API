@@ -22,10 +22,10 @@
 ## API Security Features
 
 - Added aditional security headers with [_helmet_](https://helmetjs.github.io/).
-- Limited number of requests per hour with [_express-rate-limit_](https://www.npmjs.com/package/express-rate-limit) to prevent ddos.
+- Implemented rate limit with [_express-rate-limit_](https://www.npmjs.com/package/express-rate-limit) to prevent ddos.
 - Sanitized input with [_express-mongo-sanitize_](https://www.npmjs.com/package/express-mongo-sanitize) to avoid NoSQL injections.
 - Added [_xss-clean_](https://www.npmjs.com/package/xss-clean) to prevent from Cross-Site Scripting.
-- Implemented [_hpp_](https://www.npmjs.com/package/hpp) to prevent parameter polution.
+- Added [_hpp_](https://www.npmjs.com/package/hpp) to prevent parameter polution.
 
 ## Testing The API
 
@@ -54,7 +54,8 @@ EMAIL_PASSWORD=
 EMAIL_PORT=25
 ```
 
-> NB: Modify your DB connection string and replace the password with `<PASSWORD>` and save the password in the separate `DATABASE_PASSWORD` variable if you are using a remote database.
-> eg DATABASE=mongodb+srv://username:<PASSWORD>@mongo_cluster/database_name?retryWrites=true&w=majority
-
-- The code is using mailtrap for email sending simulation, create a mailbox and add the required configurations in the file.
+## NOTE
+- Modify your DB connection string and replace the password with `<PASSWORD>` and save the password in the separate `DATABASE_PASSWORD` variable if you are using a remote database.
+e.g. 
+> DATABASE=mongodb+srv://username:<PASSWORD>@mongo_cluster/database_name?retryWrites=true&w=majority
+- I am using mailtrap for email sending simulation, create a mailbox and add the required configurations in the file.
