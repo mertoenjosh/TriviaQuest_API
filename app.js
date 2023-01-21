@@ -59,7 +59,13 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/v1/questions', questionRouter);
 app.use('/api/v1/users', userRouter);
-app.use('/', questionRouter);
+
+app.use('/', (req, res, next) => {
+  res.status(200).json({
+    status: 'success',
+    data: 'Please use /api/v1/questions for questions or /api/v1/users for authentication',
+  });
+}); // Guard for vercel
 
 // Handle all unimplemented routes
 app.all('*', (req, res, next) => {
