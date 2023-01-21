@@ -59,6 +59,7 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api/v1/questions', questionRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/', questionRouter);
 
 // Handle all unimplemented routes
 app.all('*', (req, res, next) => {
