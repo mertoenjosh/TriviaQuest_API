@@ -41,8 +41,7 @@ exports.getQuestionStats = catchErrorsAsync(async (req, res, next) => {
   ]);
 
   res.status(200).json({
-    error: false,
-    message: 'success',
+    status: 'success',
     data: stats,
   });
 });
