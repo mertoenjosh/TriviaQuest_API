@@ -28,12 +28,11 @@ const createSendToken = (user, statusCode, res) => {
 
   res.cookie('jwt', token, cookieOptions);
 
+  const userObj = user.toJSON();
+  userObj.token = token;
   res.status(statusCode).json({
     status: 'success',
-    token,
-    data: {
-      user,
-    },
+    data: userObj,
   });
 };
 
@@ -129,7 +128,6 @@ exports.forgotPassword = catchErrorsAsync(async (req, res, next) => {
   await user.save({
     validateBeforeSave: false,
   });
-
   // Send it to user's email
   const resetURL = `${req.protocol}//${req.get(
     'host'
@@ -183,15 +181,11 @@ exports.resetPassword = catchErrorsAsync(async (req, res, next) => {
   user.passwordResetExpires = undefined;
 
   await user.save();
-  const token = signToken(user._id);
-  res.status(200).json({
-    status: 'success',
-    token,
-  });
-  createSendToken(user, 200, res);
 
   // 3. update changedPassAt to invalidate the previous token
   //  Done in the model using `pre` hook
+
+  createSendToken(user, 200, res);
 });
 
 exports.updatePassword = catchErrorsAsync(async (req, res, next) => {

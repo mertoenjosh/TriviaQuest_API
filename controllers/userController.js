@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const catchErrorsAsync = require('../utils/catchErrorsAsync');
 const AppError = require('../utils/appError');
+const factory = require('./handlerFactory');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -11,41 +12,18 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
-exports.getAllUsers = catchErrorsAsync(async (req, res, next) => {
-  const users = await User.find();
-  res.status(200).json({
-    status: 'success',
-    results: users.length,
-    requestedAt: req.requestTime,
-    data: {
-      users,
-    },
-  });
-});
+exports.getAllUsers = factory.getAllDocuments(User);
 
-exports.getUser = catchErrorsAsync(async (req, res, next) => {
-  const user = await User.findById(req.params.id);
+exports.getUser = factory.getOneDocument(User);
 
-  if (!user) {
-    return next(new AppError('No user found with that id', 404));
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      user,
-    },
-  });
-});
+exports.parmanentDeleteUser = factory.deleteOne(User);
 
 exports.displayMe = catchErrorsAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id);
 
   res.status(200).json({
     status: 'success',
-    data: {
-      user,
-    },
+    data: user,
   });
 });
 
@@ -69,9 +47,7 @@ exports.updateMe = catchErrorsAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    data: {
-      user: updatedUser,
-    },
+    data: updatedUser,
   });
 });
 

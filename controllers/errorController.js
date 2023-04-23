@@ -93,4 +93,5 @@ module.exports = (err, req, res, next) => {
  * Define errors severity level
  * Email admin incase of severe error
  * JWT ERROR MSG: jwt malformed
+ * Handle instance of patch with no change in question
  */

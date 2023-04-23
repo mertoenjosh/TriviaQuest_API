@@ -1,22 +1,9 @@
 /* eslint-disable prefer-object-spread */
 const Question = require('../models/questionModel');
-const APIFeatures = require('../utils/APIFeatures');
-const AppError = require('../utils/appError');
 const catchErrorsAsync = require('../utils/catchErrorsAsync');
+const factory = require('./handlerFactory');
 
-exports.createQuestion = catchErrorsAsync(async (req, res, next) => {
-  // const newQuestion = new Question(req.body)
-  // newQuestion.save().then(err => {})
-
-  const newQuestion = await Question.create(req.body);
-
-  res.status(201).json({
-    status: 'success',
-    data: {
-      question: newQuestion,
-    },
-  });
-});
+exports.createQuestion = factory.createNewDocument(Question);
 
 exports.getEasyQuestions = (req, res, next) => {
   req.query.difficulty = 'easy';
@@ -33,71 +20,13 @@ exports.getHardQuestions = (req, res, next) => {
   next();
 };
 
-exports.getAllQuestions = catchErrorsAsync(async (req, res, next) => {
-  const questionsCount = await Question.countDocuments();
-  const features = new APIFeatures(Question.find(), req.query, questionsCount)
-    .filter()
-    .sort()
-    .paginate()
-    .limitFields();
+exports.getAllQuestions = factory.getAllDocuments(Question);
 
-  const questions = await features.query;
+exports.getQuestion = factory.getOneDocument(Question);
 
-  res.status(200).json({
-    status: 'success',
-    results: questions.length,
-    requestedAt: req.requestTime,
-    data: {
-      questions: questions,
-    },
-  });
-});
+exports.updateQuestion = factory.updateDocument(Question);
 
-exports.getQuestion = catchErrorsAsync(async (req, res, next) => {
-  const question = await Question.findById(req.params.id);
-
-  if (!question) {
-    return next(new AppError(`No question found with that Id`, 404));
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      question,
-    },
-  });
-});
-
-exports.updateQuestion = catchErrorsAsync(async (req, res, next) => {
-  const question = await Question.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
-
-  if (!question) {
-    return next(new AppError(`No question found with that ID`, 404));
-  }
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      question,
-    },
-  });
-});
-
-exports.deleteQuestion = catchErrorsAsync(async (req, res, next) => {
-  const question = await Question.findByIdAndDelete(req.params.id);
-
-  if (!question) {
-    return next(new AppError(`No question found with that ID`, 404));
-  }
-
-  res.status(204).json({
-    status: 'success',
-    data: null,
-  });
-});
+exports.deleteQuestion = factory.deleteOne(Question);
 
 exports.getQuestionStats = catchErrorsAsync(async (req, res, next) => {
   const stats = await Question.aggregate([
@@ -112,9 +41,8 @@ exports.getQuestionStats = catchErrorsAsync(async (req, res, next) => {
   ]);
 
   res.status(200).json({
-    status: 'success',
-    data: {
-      stats,
-    },
+    error: false,
+    message: 'success',
+    data: stats,
   });
 });
